@@ -199,11 +199,13 @@ public class MahJongBoard extends JPanel implements MouseListener
             {
                 first = t;
                 first.setBorder(selected);
+//                first.highlight = true;
             }
 
             else if (t == first)
             {
                 first.setBorder(null);
+//                first.highlight = false;
                 first = null;
             }
 
@@ -211,12 +213,14 @@ public class MahJongBoard extends JPanel implements MouseListener
             {
                 second = t;
                 second.setBorder(selected);
+//                second.highlight = true;
 
             }
 
             else if (t == second)
             {
                 second.setBorder(null);
+//                second.highlight = false;
                 second = null;
             }
 
@@ -228,6 +232,8 @@ public class MahJongBoard extends JPanel implements MouseListener
                 remove(first);
                 first.setBorder(null);
                 second.setBorder(null);
+//                first.highlight = false;
+//                second.highlight = false;
                 model.board.tiles[first.zVar][first.yVar][first.xVar] = null;
                 model.board.tiles[second.zVar][second.yVar][second.xVar] = null;
                 removeStack.push(second);
@@ -237,7 +243,7 @@ public class MahJongBoard extends JPanel implements MouseListener
                 second = null;
                 score += 2;
                 startReward();
-                if(soundOn == true)
+                if(soundOn)
                 {
                     clip.play();
                 }
